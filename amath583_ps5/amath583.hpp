@@ -10,6 +10,9 @@
 
 #include <random>
 #include <algorithm> // line added 
+#include <iostream> //line added
+#include <thread> //line added
+#include <future>
 #include "Matrix.hpp"
 #include "Vector.hpp"
 
