@@ -1,0 +1,47 @@
+{
+	"programs" : 
+	[
+		{
+			"command" : "./test_serial_norms.exe",
+			"exit_code" : 0
+		},
+		{
+			"command" : "./test_parallel_norms.exe",
+			"exit_code" : 0
+		},
+		{
+			"command" : "./test_parallel_matmul.exe",
+			"exit_code" : 0
+		}			
+	],	
+    "output_files" :
+    [
+        { "name" : "test_serial_norms.txt", "points" : 2.75, "tolerance" : 0, "operator" : "eq"},
+        { "name" : "mat_vec_helper.txt", "points" : 2.25, "tolerance" : 0, "operator" : "eq"},
+		{ "name" : "norm_lev_1.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_lev_2.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_lev_3.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_lev_4.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_lev_5.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_par_1.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_par_2.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_par_3.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_par_4.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "norm_par_5.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "matmul_s.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+        { "name" : "matmul_p1.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+        { "name" : "matmul_p2.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+        { "name" : "matmul_p3.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "matmul_p4.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "matmul_p5.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "matmul_p1.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+        { "name" : "matmul_p2.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+        { "name" : "matmul_p3.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" },
+		{ "name" : "matmul_p4.txt", "points" : 2.25, "tolerance" : 1e-15, "operator" : "eq" }
+    ],
+    "input_files" :
+    {
+	    "commands" : ["./gen_input_vector.exe 1 32", "./gen_input_matrix.exe 1 32"],
+        "names" : ["input_vector_1.txt", "input_matrix_1.txt", "test_parallel_matmul.cpp", "test_parallel_norms.cpp", "test_serial_norms.cpp"] 
+    }
+}
