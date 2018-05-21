@@ -9,7 +9,7 @@ void matrix_vector(void){
 	int dim = 1;
 	const size_t iterations = 100;
 	for(int i = 0; i < 14; ++i){
-		double avg_t1 = 0, avg_t2 = 0, avg_t3 = 0;
+		double avg_t1 = 0, avg_t2 = 0, avg_t3 = 0, avg_t4 = 0;
 		for(int j =0; j < iterations; ++j){
 			Vector x = randomVector(dim);
 			Vector y(dim);
@@ -23,8 +23,11 @@ void matrix_vector(void){
 			t3.tic();
 			task_matvec(A,x,y,4);
 			avg_t3 += t3.toc() ;
+			t3.tic();
+			task_matvec(A,x,y,8);
+			avg_t4 += t3.toc() ;
 		}
-		std::cout << i << "\t" << avg_t1/iterations << "\t" << avg_t2/iterations << "\t" << avg_t3/iterations << std::endl;
+		std::cout << i << "\t" << avg_t1/iterations << "\t" << avg_t2/iterations << "\t" << avg_t3/iterations << "\t" << avg_t4/iterations << std::endl;
 		dim *= 2;		
 	}
 }

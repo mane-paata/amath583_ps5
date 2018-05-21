@@ -57,7 +57,7 @@ void third_part(){
 	}	
 	std::cout << dim << std::endl;
 	HRTimer t;
-	int iterations = 10000;
+	int iterations = 1000;
 	for(int levels = 0; levels <= 20; ++levels){
 		double avg_time = 0, norm_recursive = 0;
 		for(int i = 0; i < iterations; ++i){
@@ -66,7 +66,7 @@ void third_part(){
 			norm_recursive += recursiveTwoNorm(x, levels);
 			avg_time += t.toc() ;
 		}
-		std::cout << levels << "\t" << (avg_time/iterations)*100000 << "\t" << norm_recursive << std::endl;
+		std::cout << levels << "\t" << (avg_time/iterations) << "\t" << norm_recursive << std::endl;
 	}
 }
 
@@ -75,8 +75,8 @@ void third_part(){
 int main(){
 
 	//first_part();
-	second_part();
-	//third_part();
+	//second_part();
+	third_part();
 	return 0;
 
 }
