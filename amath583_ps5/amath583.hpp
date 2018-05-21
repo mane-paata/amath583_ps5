@@ -30,6 +30,7 @@ double rtn_worker(const Vector& x, std::size_t begin, std::size_t end, std::size
 // == HW Functions (AMATH 583) ======================================
 void task_matvec(const Matrix& A, const Vector& x, Vector& y, std::size_t partitions);
 void matvec_helper(const Matrix& A, const Vector& x, Vector& y, std::size_t begin, std::size_t end);
+void task_matvec_lambda(const Matrix& A, const Vector& x, Vector& y, std::size_t partitions);
 
 // == Random Functions ==============================================
 Vector randomVector(std::size_t n);

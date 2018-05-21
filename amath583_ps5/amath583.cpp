@@ -158,6 +158,39 @@ void matvec_helper(const Matrix& A, const Vector& x, Vector& y, std::size_t begi
     }
 }
 
+// extra credit
+void task_matvec_lambda(const Matrix& A, const Vector& x, Vector& y, std::size_t partitions)
+{
+   std::vector<std::thread> tids;
+   int eip = 0, rem = 0;
+   size_t begin = 0, end = 0;
+   eip = A.num_rows()/partitions;
+   rem = A.num_rows() % partitions;
+   for(size_t i = 0; i < partitions; ++i){
+        int actual_eip = eip;
+        if(rem > 0){
+            actual_eip += 1;
+            rem -= 1;
+        }
+        begin = end ;
+        end = begin + actual_eip;
+        tids.push_back(std::thread(
+            [&A, &x, &y, begin, end]() -> void
+            { 
+                for (size_t i= begin ; i < end; ++i){
+                    for (size_t j = 0; j < A.num_cols(); ++j) {
+                        y(i) += A(i, j) * x(j);
+                    }
+                }
+            })
+        );
+   }
+   for(size_t i=0; i< partitions; i++){
+      tids[i].join();
+   }
+}
+
+
 // == Random Functions ==============================================
 
 Vector randomVector(std::size_t n)
